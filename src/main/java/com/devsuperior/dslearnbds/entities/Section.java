@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tb_section")
-public class Section  implements Serializable {
+public class Section implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,19 +20,23 @@ public class Section  implements Serializable {
     @ManyToOne
     @JoinColumn(name = "resource_id")
     private Resource resource;
+    @ManyToOne
+    @JoinColumn(name = "prerequisite_id")
+    private Section prerequisite;
     @OneToMany(mappedBy = "section")
     private List<Lesson> lessons = new ArrayList<>();
 
     public Section() {
     }
 
-    public Section(Long id, String title, String description, Integer position, String imgUri, Resource resource) {
+    public Section(Long id, String title, String description, Integer position, String imgUri, Resource resource, Section prerequisite) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.position = position;
         this.imgUri = imgUri;
         this.resource = resource;
+        this.prerequisite = prerequisite;
     }
 
     public Long getId() {
@@ -77,6 +81,14 @@ public class Section  implements Serializable {
 
     public Resource getResource() {
         return resource;
+    }
+
+    public Section getPrerequisite() {
+        return prerequisite;
+    }
+
+    public void setPrerequisite(Section prerequisite) {
+        this.prerequisite = prerequisite;
     }
 
     public void setResource(Resource resource) {
