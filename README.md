@@ -1,7 +1,7 @@
-# DSLearn 
+# DSLearn - Bootcamp DevSuperior
 
 ## Modelo conceitual
-![Modelo Conceitual](https://github.com/rosana-moreira/dslear/blob/master/img/modeloConceitual.png)
+![Modelo Conceitual](https://github.com/rosana-moreira/dslearn/blob/master/img/modeloConceitual.png)
 
 
 # Tecnologias utilizadas
